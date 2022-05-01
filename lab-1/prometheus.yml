@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 1m
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      # 指定 compose file 的 service 名稱 (my-prometheus), 以及 container port 9090
+      - targets: [my-prometheus:9090]
