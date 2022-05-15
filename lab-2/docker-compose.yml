@@ -11,11 +11,12 @@ services:
       - 19090:9090
 
   my-grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:8.3.6
     volumes:
       - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./dashboard-provider.yml:/etc/grafana/provisioning/dashboards/dashboard-provider.yml
       - ./dashboard-prometheus.json:/var/lib/grafana/dashboards/demo/dashboard-prometheus.json
+      - ./dashboard-my-prometheus.json:/var/lib/grafana/dashboards/demo/dashboard-my-prometheus.json
     depends_on:
       - my-prometheus
     ports:

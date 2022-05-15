@@ -11,7 +11,7 @@ services:
       - 19090:9090
 
   my-grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:8.3.6
     depends_on:
       - my-prometheus
     ports:
