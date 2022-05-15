@@ -1,5 +1,6 @@
 global:
   # 定義 Prometheus scrape targer 的頻率，目前設定是每 5 秒問一次 
+  # 注意這是為了 demo 才設這麼頻繁。實務上一般來說會設 30s 或 1m
   scrape_interval: 5s
 
 scrape_configs:
