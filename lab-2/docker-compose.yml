@@ -16,7 +16,7 @@ services:
       - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
       - ./dashboard-provider.yml:/etc/grafana/provisioning/dashboards/dashboard-provider.yml
       - ./dashboard-prometheus.json:/var/lib/grafana/dashboards/demo/dashboard-prometheus.json
-      - ./dashboard-my-prometheus.json:/var/lib/grafana/dashboards/demo/dashboard-my-prometheus.json
+      - ./dashboard-prometheus-from-commnunity.json:/var/lib/grafana/dashboards/demo/dashboard-prometheus-from-community.json
     depends_on:
       - my-prometheus
     ports:
