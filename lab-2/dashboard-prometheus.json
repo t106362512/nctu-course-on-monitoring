@@ -358,14 +358,10 @@
         "current": {
           "selected": true,
           "text": [
-            "/api/v1/query",
-            "/metrics",
-            "/api/v1/labels"
+            "All"
           ],
           "value": [
-            "/api/v1/query",
-            "/metrics",
-            "/api/v1/labels"
+            "$__all"
           ]
         },
         "datasource": {
@@ -382,7 +378,7 @@
           "query": "label_values(prometheus_http_requests_total, handler)",
           "refId": "StandardVariableQuery"
         },
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -391,7 +387,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
