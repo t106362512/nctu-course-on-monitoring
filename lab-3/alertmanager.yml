@@ -1,0 +1,11 @@
+route:
+  receiver: email-me
+receivers:
+- name: email-me
+  email_configs:
+  - to: <your gmail>
+    from: <your gmail>
+    smarthost: smtp.gmail.com:587
+    auth_username: <your gmail>
+    auth_identity: <your gmail>
+    auth_password: <google app password>

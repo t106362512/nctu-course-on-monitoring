@@ -3,6 +3,15 @@ global:
   # 注意這是為了 demo 才設這麼頻繁。實務上一般來說會設 30s 或 1m
   scrape_interval: 5s
 
+alerting:
+  alertmanagers:
+    - static_configs:
+        # 指定 compose file 的 service 名稱 (my-alertmanager), 以及 container port 9093
+        - targets: [my-alertmanager:9093]
+
+rule_files:
+  - "alert-rules.yml"
+
 scrape_configs:
   # 定義一個 scrape job, 名為 prometheus, 定期去 scrape Prometheus 本身自帶的 exporter
   - job_name: 'prometheus'
