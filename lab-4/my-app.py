@@ -7,10 +7,8 @@ REQUESTS_COUNTER = Counter('myapp_requests', 'Demo counter metric to record requ
 
 class DemoHandler(http.server.BaseHTTPRequestHandler):
   def do_GET(self):
-
     if random.random() <= 0.2:
       # Simulate error
-
       # instrument metric
       REQUESTS_COUNTER.labels(self.path, 500).inc()
 
@@ -25,13 +23,10 @@ class DemoHandler(http.server.BaseHTTPRequestHandler):
       self.end_headers()
       self.wfile.write(b"OK.")
 
-
 if __name__ == "__main__":
-
   print("Starting metrics endpoint...")
   # expose /metrics http endpoint in port 8123
   start_http_server(8123)
-  print("Done")
 
   print("Starting service endpoint...")
   # service endpoint
