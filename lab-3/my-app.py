@@ -2,8 +2,20 @@ import http.server
 import random
 from prometheus_client import start_http_server
 from prometheus_client import Counter
+from prometheus_client import Gauge
 
 REQUESTS_COUNTER = Counter('myapp_requests', 'Demo counter metric to record request count', labelnames=['path', 'response_code'])
+
+app_info = {
+  'app': 'myapp',
+  'author' : 'Jeremy Lin',
+  'author_email': 'alucard.lin@gmail.com',
+  'version' : '0.0.1'
+}
+
+INFO = Gauge('myapp_info', 'Demo info metric to record application info', 
+             labelnames=app_info.keys())
+INFO.labels(**app_info).set(1)
 
 class DemoHandler(http.server.BaseHTTPRequestHandler):
   def do_GET(self):
