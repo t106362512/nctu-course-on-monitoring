@@ -8,3 +8,14 @@ groups:
           severity: warning
         annotations:
           summary: 'Prometheus scrape target is missing. instance: {{ $labels.instance }} '
+
+      - alert: MyAppHighErrorRate
+        expr: > 
+              (sum by (path) (rate(myapp_requests_total{response_code="500"}[1m])) 
+               / sum by (path) (rate(myapp_requests_total[1m]))
+              ) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: 'My Application has high error rate. VALUE: {{ $value }} '

@@ -24,6 +24,14 @@ services:
       # Map port 9093 inside the container to port 19093 on the host
       - 19093:9093
 
+  my-grafana:
+    image: grafana/grafana:8.3.6
+    volumes:
+      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    depends_on:
+      - my-prometheus
+    ports:
+      - 13000:3000
   my-app:
     build:
       dockerfile: Dockerfile
