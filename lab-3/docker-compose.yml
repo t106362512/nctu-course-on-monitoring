@@ -20,7 +20,6 @@ services:
       - '--config.file=/etc/alertmanager/alertmanager.yml'
       - '--log.level=debug'
     ports:
-    ports:
       # Map port 9093 inside the container to port 19093 on the host
       - 19093:9093
 
